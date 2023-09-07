@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--LINKEAMOS BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--DESCARGAMOS BOOTSTRAP PARA ICONOS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--LINKEAMOS ICONOS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <title>Formulario Peliculas</title>
+</head>
+<body style="background: black">
+
+    <header>
+        <div>
+            <center>
+                <div class="mt-1 col-lg-10">
+                    <img th:src="@{/imagenes/logo.png}" class="mt-1" height="40" width="220"/>
+                </div>
+            </center>
+        </div>
+    </header>
+
+    <hr>
+
+    <section>
+        <div class="container" style="color:white">
+
+            <center>
+                <h2 class="mt-2" style="color: green">FORMULARIO DE PELICULA</h2>
+            </center>
+            <form th:action="@{/registro-pelicula}" method="post" th:object="${pelicula}">
+                <!--ID-->
+                <div class="mb-2 mt-2">
+                    <label>ID:</label>
+                    <input type="number" class="form-control" placeholder="Enter ID"
+                           th:field="*{id}" readonly="readonly">
+                </div>
+                <!--NOMBRE PELICULA-->
+                <div class="mb-2 mt-2">
+                    <label>Nombre de película:</label>
+                    <input type="text" class="form-control" placeholder="Ingrese el nombre de la pelicula"
+                           th:field="*{nombre_pelicula}">
+                </div>
+                <!--GENERO-->
+                <div class="mb-2 mt-2">
+                    <label for="genero">Género:</label>
+                    <select class="form-control" id="genero" name="genero" th:field="*{genero}">
+                        <option value="default" selected>Seleccione una opción</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Suspenso">Suspenso</option>
+                        <option value="Ciencia ficción">Ciencia ficción</option>
+                        <option value="Acción/Ciencia ficción">Acción/Ciencia ficción</option>
+                        <option value="Acción/Drama">Acción/Drama</option>
+                        <option value="Acción/Comedia">Acción/Comedia</option>
+                        <option value="Terror/Suspenso">Terror/Suspenso</option>
+                    </select>
+                </div>
+
+                <!--NOMBRE DEL DIRECTOR-->
+                <div class="mb-2 mt-2">
+                    <label>Nombre del director:</label>
+                    <input type="text" class="form-control" placeholder="Ingrese el nombre del director de la pelicula"
+                           th:field="*{nombre_director}">
+                </div>
+                <!--AÑO DE LANZAMIENTO-->
+                <div class="mb-2 mt-2">
+                    <label>Año de lanzamiento:</label>
+                    <input type="number" class="form-control" placeholder="Ingrese año de lanzamiento de pelicula"
+                           th:field="*{anio_pelicula}">
+                </div>
+                <center>
+                    <button type="submit" class="btn mb-2 mt-2" style="background: green">Enviar</button>
+                </center>
+            </form>
+        </div>
+    </section>
+
+    <hr>
+
+    <footer class="bg-light">
+        <center>
+            <img th:src="@{/imagenes/logo.png}" class="mt-3" height="50" width="220"/>
+            <div style="color: black" class="mt-2">Desarrollado por <b>Dayanna Macay</b> 2023</div>
+        </center>
+    </footer>
+
+
+</body>
+</html>
